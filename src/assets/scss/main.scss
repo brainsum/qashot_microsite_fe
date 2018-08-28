@@ -1,0 +1,14 @@
+// Grid only from Bootstrap
+@import '~node_modules/normalize.css/normalize.css';
+@import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
+
+#page-main {
+  .header {
+    background-image: url('../img/header.jpg');
+    background-position: center 0;
+    color: #FFF;
+  }
+  .body {
+
+  }
+}

@@ -1,0 +1,7 @@
+# Editor
+/.vscode
+
+# Files and folders
+/node_modules
+/dist
+/.cache
