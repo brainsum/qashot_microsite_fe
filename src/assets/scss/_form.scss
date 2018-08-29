@@ -1,0 +1,27 @@
+@import 'vars';
+
+input {
+  background-color: #C1BFD0;
+  border: none;
+  padding: 15px;
+  font-size: .9rem;
+  font-family: Cabin, Arial, Helvetica, sans-serif;
+}
+
+.btn {
+  background-color: $yellow-sunflower;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 2px;
+  color: #FFF;
+  cursor: pointer;
+  transition: background-color .3s ease-out;
+  font-family: Cabin, Arial, Helvetica, sans-serif;
+}
+.btn-yellow {
+  background-color: $yellow-sunflower;
+}
+.btn-yellow:hover {
+  background-color: darken($yellow-sunflower, 5%);
+}

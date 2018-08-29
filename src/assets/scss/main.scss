@@ -2,13 +2,153 @@
 @import '~node_modules/minireset.css/minireset.sass';
 @import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
 
+@import 'fonts';
+@import 'form';
+@import 'helpers';
+
+
+// Common
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Cabin, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #F3F3F3;
+}
+h1, h2, h3 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+// Page
 #page-main {
   .header {
-    background-image: url('../img/header.jpg');
-    background-position: center 0;
-    color: #FFF;
+    > .container {
+      background-image: url('../img/header.jpg');
+      background-position: center top;
+      color: #FFF;
+      .text {
+        margin:60px 0 25px;
+        text-align: center;
+        color: #0C86E8;
+        h1 {
+          font-size: 4.5rem;
+          font-weight: 400;
+        }
+        h2 {
+          font-family: Cabin, Arial, Helvetica, sans-serif;
+          font-size: 1.25rem;
+        }
+      }
+      .form {
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 40px 85px;
+        margin:25px 0 60px;
+        .websites {
+          label {
+            display: inline-block;
+            padding: 0 0 15px 15px;
+            span {
+              color: #C1BFD0;
+              margin-left: 8px;
+              font-size: .8em;
+            }
+          }
+          .form-vs {
+            text-align: center;
+            margin-bottom: 7px;
+            font-size: 1.75rem;
+            padding: 0;
+          }
+        }
+        .email {
+          margin-top: 60px;
+          button {
+            margin-left: 5px;
+          }
+          .checkbox-group {
+            display: flex;
+            input {
+              position: relative;
+              top: 3px;
+            }
+            label {
+              flex-basis: 0;
+              flex-grow: 1;
+            }
+          }
+        }
+      }
+    }
   }
   .body {
+    .example {
+      background-color: #FFF;
+      .text {
+        color: #D94C7D;
+        text-align: center;
+        h2 {
+          font-size: 1.25rem;
+          font-family: Cabin, Arial, Helvetica, sans-serif;
+        }
+        h3 {
+          font-size: 2.25rem;
+          font-family: Cabin, Arial, Helvetica, sans-serif;
+        }
+      }
+      .animgif {
+        text-align: center;
+      }
+      .usecases {
+        color: #333;
+        padding: 50px 0 80px;
+        h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 1.5em;
+        }
+        ul {
 
+        }
+        li {
+          margin-bottom: 20px;
+          list-style: disc;
+        }
+      }
+    }
+    .enterprise {
+      background-color: #15002C;
+      color: #FFF;
+      padding: 60px 0;
+      h2 {
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.2em;
+      }
+      ul {
+        font-size: 1.125rem;
+        line-height: 2em;
+        list-style: disc;
+        margin-bottom: 2.3em;
+      }
+      .mailto {
+        p {
+          font-size: 2rem;
+          font-weight: 700;
+          a {
+            color: #40afaa;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    color: #000;
+    > .container {
+      background-color: #FFF;
+    }
   }
 }
