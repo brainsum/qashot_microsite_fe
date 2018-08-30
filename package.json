@@ -19,7 +19,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --out-dir build",
     "dev": "parcel src/index.html"
   },
   "repository": {
