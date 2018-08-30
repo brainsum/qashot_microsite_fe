@@ -1,11 +1,10 @@
-// Grid only from Bootstrap
+@import 'vendor';
 @import '~node_modules/minireset.css/minireset.sass';
 @import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
 
 @import 'fonts';
 @import 'form';
 @import 'helpers';
-
 
 // Common
 * {
@@ -21,6 +20,7 @@ h1, h2, h3 {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
+
 // Page
 #page-main {
   .header {
@@ -28,7 +28,7 @@ h1, h2, h3 {
       background-image: url('../img/header.jpg');
       background-position: center top;
       background-repeat: no-repeat;
-      background-color: #0B0640;
+      background-color: #170A52;
       color: #FFF;
       .text {
         margin:60px 0 25px;
@@ -48,7 +48,7 @@ h1, h2, h3 {
 
         }
       }
-      .form {
+      .form1 {
         background-color: rgba(255, 255, 255, 0.15);
         padding: 40px 85px;
         margin:25px 0 60px;
@@ -114,6 +114,36 @@ h1, h2, h3 {
               flex-grow: 1;
             }
           }
+        }
+      }
+      .form2 {
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 40px 85px;
+        margin:25px 0 60px;
+        @include media-breakpoint-down(md) {
+          padding: 40px 40px;
+        }
+        @include media-breakpoint-down(xs) {
+          padding: 40px 20px;
+          margin:25px 0 0;
+        }
+        .form-heading {
+          font-size: 2rem;
+        }
+        .form-website1 {
+          margin: 20px 0 10px;
+        }
+        .form-website2 {
+          margin: 10px 0 20px;
+        }
+        .form-email {
+          font-size: 1rem;
+          a {
+            color: #FFF;
+          }
+        }
+        .form-button {
+          margin-top: 20px;
         }
       }
     }
