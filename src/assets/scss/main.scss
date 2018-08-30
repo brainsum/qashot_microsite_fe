@@ -27,6 +27,8 @@ h1, h2, h3 {
     > .container {
       background-image: url('../img/header.jpg');
       background-position: center top;
+      background-repeat: no-repeat;
+      background-color: #0B0640;
       color: #FFF;
       .text {
         margin:60px 0 25px;
@@ -35,43 +37,77 @@ h1, h2, h3 {
         h1 {
           font-size: 4.5rem;
           font-weight: 400;
+          margin-bottom: 0.1em;
+          @include media-breakpoint-down(xs) {
+            font-size: 2.5rem;
+          }
         }
         h2 {
           font-family: Cabin, Arial, Helvetica, sans-serif;
           font-size: 1.25rem;
+
         }
       }
       .form {
         background-color: rgba(255, 255, 255, 0.15);
         padding: 40px 85px;
         margin:25px 0 60px;
+        @include media-breakpoint-down(md) {
+          padding: 40px 40px;
+        }
+        @include media-breakpoint-down(xs) {
+          padding: 40px 20px;
+          margin:25px 0 0;
+        }
         .websites {
           label {
             display: inline-block;
             padding: 0 0 15px 15px;
-            span {
+            @include media-breakpoint-down(md) {
+              padding: 0 0 15px;
+            }
+            .label {
+              margin-right: 8px;
+            }
+            .eg {
               color: #C1BFD0;
-              margin-left: 8px;
               font-size: .8em;
+              white-space: nowrap;
             }
           }
           .form-vs {
             text-align: center;
-            margin-bottom: 7px;
+            margin: 0 0 7px 0;
             font-size: 1.75rem;
             padding: 0;
+            @include media-breakpoint-down(sm) {
+              margin: 15px 0 15px 0;
+              &::before {
+                content: "- "
+              }
+              &::after {
+                content: " -"
+              }
+            }
           }
         }
         .email {
           margin-top: 60px;
           button {
-            margin-left: 5px;
+            margin: 0 0 0 5px;
+            @include media-breakpoint-down(sm) {
+              margin: 5px 0 0 0;
+            }
           }
           .checkbox-group {
             display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+            padding: 0 10px;
             input {
               position: relative;
               top: 3px;
+              margin-right: 10px;
             }
             label {
               flex-basis: 0;
@@ -88,6 +124,7 @@ h1, h2, h3 {
       .text {
         color: #D94C7D;
         text-align: center;
+        margin: 45px 0 10px;
         h2 {
           font-size: 1.25rem;
           font-family: Cabin, Arial, Helvetica, sans-serif;
@@ -95,6 +132,9 @@ h1, h2, h3 {
         h3 {
           font-size: 2.25rem;
           font-family: Cabin, Arial, Helvetica, sans-serif;
+          @include media-breakpoint-down(sm) {
+            font-size: 2rem;
+          }
         }
       }
       .animgif {
@@ -107,9 +147,9 @@ h1, h2, h3 {
           font-size: 2rem;
           font-weight: 700;
           margin-bottom: 1.5em;
-        }
-        ul {
-
+          @include media-breakpoint-down(sm) {
+            font-size: 1.5rem;
+          }
         }
         li {
           margin-bottom: 20px;
@@ -126,17 +166,26 @@ h1, h2, h3 {
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 1.2em;
+        @include media-breakpoint-down(sm) {
+          font-size: 1.25rem;
+        }
       }
       ul {
         font-size: 1.125rem;
         line-height: 2em;
         list-style: disc;
         margin-bottom: 2.3em;
+        @include media-breakpoint-down(xs) {
+          font-size: 1rem;
+        }
       }
       .mailto {
         p {
           font-size: 2rem;
           font-weight: 700;
+          @include media-breakpoint-down(xs) {
+            font-size: 1.25rem;
+          }
           a {
             color: #40afaa;
             text-decoration: none;
@@ -148,7 +197,12 @@ h1, h2, h3 {
   .footer {
     color: #000;
     > .container {
+      padding-top: 50px;
+      padding-bottom: 200px;
       background-color: #FFF;
+      @include media-breakpoint-down(xs) {
+        padding-bottom: 50px;
+      }
     }
   }
 }
