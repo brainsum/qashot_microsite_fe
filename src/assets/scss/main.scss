@@ -59,6 +59,11 @@ h1, h2, h3 {
           padding: 40px 20px;
           margin:25px 0 0;
         }
+        .error {
+          margin: 5px 0;
+          width: 100%;
+          color: red;
+        }
         .websites {
           label {
             display: inline-block;
@@ -77,11 +82,11 @@ h1, h2, h3 {
           }
           .form-vs {
             text-align: center;
-            margin: 0 0 7px 0;
+            margin: 0 0 35px 0;
             font-size: 1.75rem;
             padding: 0;
             @include media-breakpoint-down(sm) {
-              margin: 15px 0 15px 0;
+              margin: 0 0 20px 0;
               &::before {
                 content: "- "
               }
@@ -92,7 +97,10 @@ h1, h2, h3 {
           }
         }
         .email {
-          margin-top: 60px;
+          margin-top: 40px;
+          @include media-breakpoint-down(sm) {
+            margin-top: 30px;
+          }
           button {
             margin: 0 0 0 5px;
             @include media-breakpoint-down(sm) {
@@ -102,8 +110,11 @@ h1, h2, h3 {
           .checkbox-group {
             display: flex;
             align-items: flex-start;
-            margin-top: 15px;
+            flex-wrap: wrap;
             padding: 0 10px;
+            @include media-breakpoint-down(sm) {
+              margin: 10px 0 0 0;
+            }
             input {
               position: relative;
               top: 3px;
@@ -117,6 +128,7 @@ h1, h2, h3 {
         }
       }
       .form2 {
+        display: none;
         background-color: rgba(255, 255, 255, 0.15);
         padding: 40px 85px;
         margin:25px 0 60px;
@@ -154,7 +166,7 @@ h1, h2, h3 {
       .text {
         color: #D94C7D;
         text-align: center;
-        margin: 45px 0 10px;
+        margin: 40px 0 30px;
         h2 {
           font-size: 1.25rem;
           font-family: Cabin, Arial, Helvetica, sans-serif;
@@ -167,8 +179,41 @@ h1, h2, h3 {
           }
         }
       }
-      .animgif {
-        text-align: center;
+      .carousel {
+        .tabs {
+          .tab {
+            color: #CCCCCC;
+            border-bottom: 3px solid transparent;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            cursor: pointer;
+            &.active {
+              color: inherit;
+              border-bottom: 3px solid #4284F7;
+            }
+          }
+          .underline {
+            border-bottom: 1px solid #CCCCCC;
+          }
+        }
+        .slides {
+          #slides-slider {
+            width: 700px;
+            height: 668px;
+            margin: .7em auto;
+            @include media-breakpoint-down(sm) {
+              width: 510px;
+              height: 487px;
+            }
+            @include media-breakpoint-down(xs) {
+              width: 300px;
+              height: 286px;
+            }
+            img {
+              left: initial !important;
+            }
+          }
+        }
       }
       .usecases {
         color: #333;

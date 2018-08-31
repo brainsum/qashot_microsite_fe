@@ -19,33 +19,37 @@
         </div>
         <div class="row justify-content-center">
           <!-- Form 1 -->
-          <div class="col-sm-9 form1">
+          <div class="col-sm-9 form1" id="form1">
             <div class="websites">
               <div class="row align-items-end">
                 <div class="col-md form-website-1">
                   <label for="input-website-1"><span class="label">Website instance 1</span> <span class="eg">(eg. live)</span></label>
                   <input type="text" class="w-100" name="input-website-1" id="input-website-1" placeholder="Like www.website.com">
+                  <div class="error">&nbsp;</div>
                 </div>
                 <div class="col-md-1 form-vs">VS</div>
                 <div class="col-md form-website-2">
                   <label for="input-website-2"><span class="label">Website instance 2</span>​​​​​​​ <span class="eg">(eg. development)</span></label>
                   <input type="text" class="w-100" name="input-website-2" id="input-website-2" placeholder="Like dev.website.com">
+                  <div class="error">&nbsp;</div>
                 </div>
               </div>
             </div>
             <div class="email">
-              <div class="row align-items-end justify-content-center no-gutters">
+              <div class="row align-items-start justify-content-center no-gutters">
                 <div class="col-md col-lg-6 col-xl-4">
-                  <input type="text" class="w-100" name="input-website-1" id="input-website-1" placeholder="Your E-mail address">
+                  <input type="text" class="w-100" name="input-email" id="input-email" placeholder="Your E-mail address">
+                  <div class="error">&nbsp;</div>
                 </div>
                 <div class="col-md col-lg-6 col-xl-4">
-                  <button class="w-100 btn btn-yellow">Send me the differences</button>
+                  <button class="w-100 btn btn-yellow" id="input-send">Send me the differences</button>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-8 checkbox-agree">
                   <div class="checkbox-group">
                     <input type="checkbox" name="input-checkbox-agree" id="input-checkbox-agree">
                     <label for="input-checkbox-agree">I agree to my personal data being stored and used to receive newsletter</label>
+                    <div class="error">&nbsp;</div>
                   </div>
                 </div>
               </div>
@@ -53,7 +57,7 @@
           </div>
           <!-- END Form 1 -->
           <!-- Form 2 -->
-          <div class="col-sm-9 form2">
+          <div class="col-sm-9 form2" id="form2">
             <div class="websites">
               <div class="row">
                 <div class="col form-heading text-center">
@@ -79,7 +83,7 @@
               </div>
               <div class="row">
                 <div class="col form-button text-center">
-                  <button class="btn btn-yellow">Create new comparison</button>
+                  <button class="btn btn-yellow" id="input-again">Create new comparison</button>
                 </div>
               </div>
             </div>
@@ -98,9 +102,24 @@
                 <h3>"Oops, the logo and a block disapeared!"</h3>
               </div>
             </div>
-            <div class="row animgif">
+            <div class="row carousel">
               <div class="col">
-                <img class="mw-100" src="./assets/img/qashot-animgif-small-fdb893.gif" alt="">
+                <div class="row justify-content-center text-center tabs">
+                  <div class="col-sm-4 col-lg-3 col-xl-2 tab active" data-tab-index="0">Instance 1 (Live)</div>
+                  <div class="col-sm-4 col-lg-3 col-xl-2 tab" data-tab-index="1">Instance 2 (Dev)</div>
+                  <div class="col-sm-4 col-lg-3 col-xl-2 tab" data-tab-index="2">Difference<br>(The generated result)</div>
+                  <div class="w-100"></div>
+                  <div class="col-sm-12 col-lg-9 col-xl-6 underline"></div>
+                </div>
+                <div class="row justify-content-center text-center slides">
+                  <div class="col">
+                      <div id="slides-slider">
+                        <img src="assets/img/qashot-animgif-small-00.jpg"/>
+                        <img src="assets/img/qashot-animgif-small-01.jpg"/>
+                        <img src="assets/img/qashot-animgif-small-02.jpg"/>
+                      </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row justify-content-center usecases">
