@@ -187,6 +187,13 @@ h1, h2, h3 {
             padding-top: 10px;
             padding-bottom: 10px;
             cursor: pointer;
+            &[data-tab-index="2"] {
+              color: #f310fd;
+              &.active {
+                color: #f310fd;
+                border-bottom: 3px solid #4284F7;
+              }
+            }
             &.active {
               color: inherit;
               border-bottom: 3px solid #4284F7;
