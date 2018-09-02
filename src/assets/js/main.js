@@ -1,5 +1,5 @@
 import validator from 'validator';
-import { getSlider } from 'simple-slider';
+import Wallop from 'wallop';
 
 
 document.getElementById('input-send').addEventListener('click', () => {
@@ -49,9 +49,10 @@ document.getElementById('input-again').addEventListener('click', () => {
 });
 
 
-// Image Slider
+// Image slider (wallop)
 
-(function imgeSlider() {
+(function imageSlider() {
+
   const tabs = document.getElementsByClassName('tab');
 
   function removeTabBorders() {
@@ -60,21 +61,21 @@ document.getElementById('input-again').addEventListener('click', () => {
     });
   }
 
-  const imgSlider = getSlider({
-    container: document.getElementById('slides-slider'),
-    prop: 'right',
-    duration: 0.4,
-    onChange: (prevIndex, nextIndex) => {
-      removeTabBorders();
-      tabs[nextIndex].classList.add('active');
-    }
+  const slider = new Wallop(document.querySelector('.Wallop'));
+
+  const interval = setInterval(() => {
+    slider.next();
+  }, 2000);
+
+  slider.on('change', (e) => {
+    removeTabBorders();
+    tabs[e.detail.currentItemIndex].classList.add('active');
   });
 
   Array.prototype.forEach.call(tabs, (tab) => {
     tab.addEventListener('click', (event) => {
-      console.log(event.target.dataset.tabIndex);
-      imgSlider.pause();
-      imgSlider.change(event.target.dataset.tabIndex);
+      clearInterval(interval);
+      slider.goTo(event.target.dataset.tabIndex);
     });
   });
 }());
