@@ -1,6 +1,8 @@
 @import 'vendor';
 @import '~node_modules/minireset.css/minireset.sass';
 @import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import 'vendor/wallop/wallop.scss';
+@import 'vendor/wallop/wallop--fade.scss';
 
 @import 'fonts';
 @import 'form';
