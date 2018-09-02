@@ -4,6 +4,7 @@
     "browser": true
   },
   "rules": {
+    "no-var": "off",
     "no-console": "off",
     "comma-dangle": "off"
   }
