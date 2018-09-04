@@ -7,3 +7,7 @@ node_modules
 dist
 build
 .cache
+
+.dockerignore
+docker-compose.yml
+Dockerfile
