@@ -1,5 +1,8 @@
 import validator from 'validator';
 import Wallop from 'wallop';
+import axios from 'axios';
+
+import Config from './../../../config.js'
 
 
 document.getElementById('input-send').addEventListener('click', () => {
@@ -27,12 +30,36 @@ document.getElementById('input-send').addEventListener('click', () => {
     }
   });
 
+  // There was no validation erro, so we send data.
   if (errorCount <= 0) {
-    document.getElementById('form1').style = 'display: none;';
-    document.getElementById('form2').style = 'display: initial;';
+    const form1 = document.getElementById('form1');
+    const form2 = document.getElementById('form2');
+
+    form1.classList.add('loading');
+
+    axios.post(Config.serviceProtocol + Config.serviceDomain + Config.servicePath, {
+      reference_url: inputWebsite1.value,
+      test_url: inputWebsite2.value,
+      newsletter: inputCheckbox.checked,
+      email: inputEmail.value
+    }).then((response) => {
+      if (response.statusText === 'OK') {
+        document.getElementById('output-website-1').textContent = inputWebsite1.value;
+        document.getElementById('output-website-2').textContent = inputWebsite2.value;
+        document.getElementById('output-email').textContent = inputEmail.value;
+
+        form1.classList.remove('loading');
+        form1.style = 'display: none;';
+        form2.style = 'display: initial;';
+      }
+    }).catch((error) => {
+      form1.classList.remove('loading');
+      document.getElementById('output-error').textContent = "There was an error while processing your request!"
+    });
   }
 });
 
+// We create an other request. Crearing previous data.
 document.getElementById('input-again').addEventListener('click', () => {
   const inputs = ['input-website-1', 'input-website-2', 'input-email', 'input-checkbox-agree'];
 

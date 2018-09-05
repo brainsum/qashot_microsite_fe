@@ -20,6 +20,10 @@
         <div class="row justify-content-center">
           <!-- Form 1 -->
           <div class="col-sm-9 form1" id="form1">
+            <div class="loader">
+              <div class="loader-component"></div>
+            </div>
+            <div class="error text-center" id="output-error"></div>
             <div class="websites">
               <div class="row align-items-end">
                 <div class="col-md form-website-1">
@@ -67,18 +71,18 @@
               <div class="row justify-content-center">
                 <div class="col form-website1 text-center">
                   <div class="website1">Website instance 1</div>
-                  <div class="address">www.dev.livesite.com</div>
+                  <div class="address" id="output-website-1">www.dev.livesite.com</div>
                 </div>
               </div>
               <div class="row justify-content-center text-center">
                 <div class="col form-website2">
                     <div class="website2">Website instance 2</div>
-                    <div class="address">www.livesite.com</div>
+                    <div class="address" id="output-website-2">www.livesite.com</div>
                 </div>
               </div>
               <div class="row">
                 <div class="col form-email text-center">
-                  <h2>Please check your email address to see the result: <a href="mailto:email@domain.com">email@domain.com</a></h2>
+                  <h2>Please check your email address to see the result: <a id="output-email" href="mailto:email@domain.com">email@domain.com</a></h2>
                 </div>
               </div>
               <div class="row">
