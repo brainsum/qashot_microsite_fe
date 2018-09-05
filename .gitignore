@@ -1,5 +1,6 @@
 # Editor
-/.vscode
+.vscode
+.idea
 
 # Files and folders
 /node_modules

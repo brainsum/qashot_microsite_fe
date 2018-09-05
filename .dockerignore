@@ -1,0 +1,13 @@
+# Editor
+.vscode
+.idea
+
+# Files and folders
+node_modules
+dist
+build
+.cache
+
+.dockerignore
+docker-compose.yml
+Dockerfile
