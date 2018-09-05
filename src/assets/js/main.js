@@ -52,7 +52,6 @@ document.getElementById('input-again').addEventListener('click', () => {
 // Image slider (wallop)
 
 (function imageSlider() {
-
   const tabs = document.getElementsByClassName('tab');
 
   function removeTabBorders() {
