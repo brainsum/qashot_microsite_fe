@@ -2,7 +2,7 @@ import validator from 'validator';
 import Wallop from 'wallop';
 import axios from 'axios';
 
-import Config from './../../../config.js'
+import Config from '../../../config';
 
 
 document.getElementById('input-send').addEventListener('click', () => {
@@ -52,9 +52,9 @@ document.getElementById('input-send').addEventListener('click', () => {
         form1.style = 'display: none;';
         form2.style = 'display: initial;';
       }
-    }).catch((error) => {
+    }).catch(() => {
       form1.classList.remove('loading');
-      document.getElementById('output-error').textContent = "There was an error while processing your request!"
+      document.getElementById('output-error').textContent = 'There was an error while processing your request!';
     });
   }
 });
