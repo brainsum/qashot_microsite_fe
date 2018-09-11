@@ -43,7 +43,7 @@ document.getElementById('input-send').addEventListener('click', () => {
       newsletter: inputCheckbox.checked,
       email: inputEmail.value
     }).then((response) => {
-      if (response.statusText === 'OK') {
+      if (response.status >= 200 && response.status < 300) {
         document.getElementById('output-website-1').textContent = inputWebsite1.value;
         document.getElementById('output-website-2').textContent = inputWebsite2.value;
         document.getElementById('output-email').textContent = inputEmail.value;
