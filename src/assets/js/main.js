@@ -47,6 +47,7 @@ document.getElementById('input-send').addEventListener('click', () => {
         document.getElementById('output-website-1').textContent = inputWebsite1.value;
         document.getElementById('output-website-2').textContent = inputWebsite2.value;
         document.getElementById('output-email').textContent = inputEmail.value;
+        document.getElementById('output-email').href = `mailto:${inputEmail.value}`;
 
         form1.classList.remove('loading');
         form1.style = 'display: none;';
