@@ -22,6 +22,7 @@ FROM nginx:1.15.5-alpine
 LABEL maintainer="mhavelant"
 COPY --from=build /home/node/app/build /var/www
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/additional /etc/nginx/additional
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
