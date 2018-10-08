@@ -21,8 +21,9 @@ RUN npm run-script build
 FROM nginx:1.15.5-alpine
 LABEL maintainer="mhavelant"
 COPY --from=build /home/node/app/build /var/www
-COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY docker/additional /etc/nginx/additional
+COPY --from=build /home/node/app/src/robots.txt /var/www
+COPY docker/nginx_config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx_config/additional /etc/nginx/additional
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
