@@ -18,7 +18,7 @@ COPY . .
 RUN npm run-script build
 
 # Actual
-FROM nginx:1.15.3-alpine
+FROM nginx:1.15.5-alpine
 LABEL maintainer="mhavelant"
 COPY --from=build /home/node/app/build /var/www
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
