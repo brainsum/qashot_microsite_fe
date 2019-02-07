@@ -7,6 +7,7 @@ Frontend of QAShot microsite
 - rename config.example.js to config.js and edit its values.
 - run ```npm run dev```
 - open ```localhost:1234``` in browser
+- before ```git push``` change version numbers in package.json and docker-compose.yml
 
 ## Deployment
 - clone repository
