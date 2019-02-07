@@ -14,8 +14,8 @@ document.getElementById('input-send').addEventListener('click', () => {
   const inputEmail = document.getElementById('input-email');
   const inputCheckbox = document.getElementById('input-checkbox-agree');
 
-  if (!validator.isURL(inputWebsite1.value)) { inputs.push({ error: true, id: 'input-website-1', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-1' }); }
-  if (!validator.isURL(inputWebsite2.value)) { inputs.push({ error: true, id: 'input-website-2', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-2' }); }
+  if (!validator.isURL(inputWebsite1.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-1', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-1' }); }
+  if (!validator.isURL(inputWebsite2.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-2', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-2' }); }
   if (!validator.isEmail(inputEmail.value)) { inputs.push({ error: true, id: 'input-email', message: 'Not a valid E-mail' }); } else { inputs.push({ error: false, id: 'input-email' }); }
   if (!inputCheckbox.checked) { inputs.push({ error: true, id: 'input-checkbox-agree', message: 'Must be checked' }); } else { inputs.push({ error: false, id: 'input-checkbox-agree' }); }
 
