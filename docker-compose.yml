@@ -3,7 +3,7 @@ version: '3.3'
 # See: https://blog.manifold.co/building-a-production-grade-container-for-your-static-javascript-application-b2b2eff83fbd
 services:
   app:
-    image: brainsum/qashot_microsite_fe:1.0.6
+    image: brainsum/qashot-microsite-fe:1.0.7
     container_name: qashot_microsite_frontend_app
     build:
       context: .
