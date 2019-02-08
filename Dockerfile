@@ -1,5 +1,5 @@
 # Builder
-FROM node:10.9.0-alpine AS build
+FROM node:10.15.1-alpine AS build
 
 LABEL maintainer="mhavelant"
 
@@ -18,7 +18,7 @@ COPY . .
 RUN npm run-script build
 
 # Actual
-FROM pagespeed/nginx-pagespeed:1.13.35-alpine3.8-ngx1.15
+FROM pagespeed/nginx-pagespeed:1.13.35.2-alpine3.8-ngx1.15
 
 LABEL maintainer="mhavelant"
 
