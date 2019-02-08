@@ -1,6 +1,6 @@
 {
   "name": "qashot_microsite_fe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Front-end build for QAShot public site.",
   "main": "index.js",
   "author": "Brainsum",
