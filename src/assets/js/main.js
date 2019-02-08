@@ -88,7 +88,7 @@ document.getElementById('input-again').addEventListener('click', () => {
     });
   }
 
-  const slider = Wallop(document.querySelector('.Wallop'));
+  const slider = new Wallop(document.querySelector('.Wallop'));
 
   const interval = setInterval(() => {
     slider.next();
