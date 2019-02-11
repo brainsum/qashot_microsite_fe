@@ -15,28 +15,31 @@
 }
 body {
   font-family: Cabin, Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  background-color: #F3F3F3;
+  background-color: #FFF;
 }
 h1, h2, h3 {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 700;
 }
 
 
 // Page
 #page-main {
   .header {
+    background-image: url('../img/header.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #010E4A;
+    background-size: cover;
+    position: relative;
     > .container {
-      background-image: url('../img/header.jpg');
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-color: #170A52;
       color: #FFF;
       .text {
         margin:60px 0 25px;
         text-align: center;
-        color: #0C86E8;
+        color: #EEF6FF;
         h1 {
           font-size: 4.5rem;
           font-weight: 400;
@@ -47,13 +50,13 @@ h1, h2, h3 {
         }
         h2 {
           font-family: Cabin, Arial, Helvetica, sans-serif;
-          font-size: 1.25rem;
+          font-size: 1.3rem;
 
         }
       }
       .form1 {
         background-color: rgba(255, 255, 255, 0.15);
-        padding: 40px 85px;
+        padding: 40px 60px;
         margin:25px 0 60px;
         @include media-breakpoint-down(md) {
           padding: 40px 40px;
@@ -87,7 +90,7 @@ h1, h2, h3 {
         .websites {
           label {
             display: inline-block;
-            padding: 0 0 15px 15px;
+            padding: 0 0 15px 10px;
             @include media-breakpoint-down(md) {
               padding: 0 0 15px;
             }
@@ -122,9 +125,12 @@ h1, h2, h3 {
             margin-top: 30px;
           }
           button {
-            margin: 0 0 0 5px;
+            margin: 0 0 0 6px;
+            max-width: 200px;
+            height: 48px;
             @include media-breakpoint-down(sm) {
               margin: 5px 0 0 0;
+              max-width: initial;
             }
           }
           .checkbox-group {
@@ -150,7 +156,7 @@ h1, h2, h3 {
       .form2 {
         display: none;
         background-color: rgba(255, 255, 255, 0.15);
-        padding: 40px 85px;
+        padding: 40px 60px;
         margin:25px 0 60px;
         @include media-breakpoint-down(md) {
           padding: 40px 40px;
@@ -189,15 +195,16 @@ h1, h2, h3 {
     .example {
       background-color: #FFF;
       .text {
-        color: #D94C7D;
+        color: #333;
         text-align: center;
-        margin: 40px 0 30px;
+        margin: 50px 0 40px;
         h2 {
           font-size: 1.25rem;
           font-family: Cabin, Arial, Helvetica, sans-serif;
+          margin-bottom: 5px;
         }
         h3 {
-          font-size: 2.25rem;
+          font-size: 1.7rem;
           font-family: Cabin, Arial, Helvetica, sans-serif;
           @include media-breakpoint-down(sm) {
             font-size: 2rem;
@@ -216,12 +223,12 @@ h1, h2, h3 {
               color: #f310fd;
               &.active {
                 color: #f310fd;
-                border-bottom: 3px solid #4284F7;
+                border-bottom: 3px solid #2C42A9;
               }
             }
             &.active {
               color: inherit;
-              border-bottom: 3px solid #4284F7;
+              border-bottom: 3px solid #2C42A9;
             }
           }
           .underline {
@@ -251,6 +258,7 @@ h1, h2, h3 {
           font-size: 2rem;
           font-weight: 700;
           margin-bottom: 1.5em;
+          text-transform: uppercase;
           @include media-breakpoint-down(sm) {
             font-size: 1.5rem;
           }
@@ -261,8 +269,10 @@ h1, h2, h3 {
         }
       }
     }
+  }
+  .features {
+    background-color: #15002C;
     .enterprise {
-      background-color: #15002C;
       color: #FFF;
       padding: 60px 0;
       h2 {
@@ -285,13 +295,13 @@ h1, h2, h3 {
       }
       .mailto {
         p {
-          font-size: 2rem;
+          font-size: 1.7rem;
           font-weight: 700;
           @include media-breakpoint-down(xs) {
             font-size: 1.25rem;
           }
           a {
-            color: #40afaa;
+            color: #BBA514;
             text-decoration: none;
           }
         }
@@ -302,7 +312,7 @@ h1, h2, h3 {
     color: #000;
     > .container {
       padding-top: 50px;
-      padding-bottom: 200px;
+      padding-bottom: 100px;
       background-color: #FFF;
       @include media-breakpoint-down(xs) {
         padding-bottom: 50px;

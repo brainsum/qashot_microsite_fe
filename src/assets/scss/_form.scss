@@ -5,6 +5,7 @@ input {
   border: none;
   padding: 15px;
   font-size: .9rem;
+  border-radius: 4px;
   font-family: Cabin, Arial, Helvetica, sans-serif;
 }
 
@@ -13,7 +14,7 @@ input {
   border: none;
   padding: 15px;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 4px;
   color: #FFF;
   cursor: pointer;
   transition: background-color .3s ease-out;
