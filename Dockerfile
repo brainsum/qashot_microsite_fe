@@ -9,7 +9,12 @@ WORKDIR /home/node/app
 
 COPY package*.json ./
 
-RUN apk add --no-cache util-linux && \
+RUN apk add --no-cache \
+    util-linux=2.32-r0 \
+    python=2.7.15-r1 \
+    # @todo: libcairo and anything else node-gyp wants.
+    pkgconf=1.5.3-r0 \
+    git=2.18.1-r0 && \
     npm install && \
     chown -R node:node /home/node
 
