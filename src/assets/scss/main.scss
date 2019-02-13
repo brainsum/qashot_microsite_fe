@@ -238,7 +238,7 @@ h1, h2, h3 {
         .slides {
           #slides-slider {
             width: 700px;
-            height: 668px;
+            height: 700px;
             margin: .7em auto;
             @include media-breakpoint-down(sm) {
               width: 510px;
