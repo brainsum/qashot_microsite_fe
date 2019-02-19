@@ -1,9 +1,11 @@
+import * as Cookieconsent from '../../../node_modules/cookieconsent/build/cookieconsent.js'
+
 window.CookieConsent.init({
   categories: {
     analytics: {
       needed: false,
-      wanted: false,
-      checked: false,
+      wanted: true,
+      checked: true,
       language: {
         locale: {
           en: {
