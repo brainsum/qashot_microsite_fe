@@ -1,6 +1,6 @@
 {
   "name": "qashot_microsite_fe",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Front-end build for QAShot public site.",
   "main": "index.js",
   "author": "Brainsum",
@@ -19,6 +19,7 @@
     "minireset.css": "0.0.3",
     "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
+    "rmodal": "^1.0.31",
     "simple-slider": "^1.0.0",
     "trianglify": "^2.0.0",
     "validator": "^10.11.0",
