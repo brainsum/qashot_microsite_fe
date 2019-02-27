@@ -53,14 +53,14 @@
                   <label for="input-website-1"><span class="label">Website instance 1</span> <span class="eg">(eg.
                       live)</span></label>
                   <input type="text" class="w-100" name="input-website-1" id="input-website-1" placeholder="Like https://www.website.com">
-                  <div class="error">&nbsp;</div>
+                  <div class="error"></div>
                 </div>
                 <div class="col-md-1 form-vs">VS</div>
                 <div class="col-md form-website-2">
                   <label for="input-website-2"><span class="label">Website instance 2</span>​​​​​​​<span class="eg">(eg.
                       development)</span></label>
                   <input type="text" class="w-100" name="input-website-2" id="input-website-2" placeholder="Like https://dev.website.com">
-                  <div class="error">&nbsp;</div>
+                  <div class="error"></div>
                 </div>
               </div>
             </div>
@@ -68,18 +68,79 @@
               <div class="row align-items-start justify-content-center no-gutters">
                 <div class="col-md col-lg-6 col-xl-4">
                   <input type="text" class="w-100" name="input-email" id="input-email" placeholder="Your E-mail address">
-                  <div class="error">&nbsp;</div>
+                  <div class="error"></div>
                 </div>
                 <div class="col-md col-lg-6 col-xl-4">
                   <button class="w-100 btn btn-yellow" id="input-send">Send me the differences</button>
                 </div>
                 <div class="w-100"></div>
-                <div class="col-lg-8 checkbox-agree">
+                <div class="col-md col-xl-6 col-lg-8 checkbox-agree">
+
+                  <!-- Privacy Policy modal -->
+                  <div id="modal" class="modal">
+                    <div class="modal-dialog animated">
+                      <div class="modal-content">
+                        <form class="form-horizontal" method="get">
+                          <button id="close-modal">&times;</button>
+                          <div class="modal-body">
+                              <h1>QAShot.com Privacy policy</h1>
+                              <h2>Data Controller</h2>
+                              <p>The data controller of www.qashot.com is Brainsum Kft., 2836 Baj, Bem József utca 27, Hungary (“BRAINSUM”).</p>
+                              <h2>Information we collect from you</h2>
+                              <p>You provide us information about yourself when you:</p>
+                              <ul>
+                                <li>Request for a QAShot report: email address, website addresses.</li>
+                                <li>Feedback form: email address, feedback.</li>
+                                <li>Contact our customer support: email address.</li>
+                              </ul>
+                              <h2>Why we collect information</h2>
+                              <p>We collect, use and store or process your information to provide our Services, to fix and improve them, to develop new services.</p>
+                              <p>Some examples:</p>
+                              <ul>
+                                <li>Provide you the service you request</li>
+                                <li>Gather feedback from you and to send you information about our products</li>
+                                <li>Test changes in our Services and develop new features and products</li>
+                                <li>Fix problems you may have with our Services, including answering support questions and resolving disputes</li>
+                                <li>Answer your questions, give you support</li>
+                              </ul>
+                              <h2>Who will have access to your personal information</h2>
+                              <p>We may share your personal information with Brainsum s.r.o. Ružový háj 1379/30, 92901 Dunajská Streda, Slovakia (the parent company of Brainsum Kft.). At Brainsum Kft. and Brainsum s.r.o. your personal data will be accessible for the manager team, and if it is needed for technical reasons with the selected part of our developers.</p>
+                              <p>We do not sell personal information to anyone and only share it with third parties who are facilitating the delivery of Brainsum services. Our website collects certain information automatically and stores it in log files. The information may include internet protocol (IP) addresses, the region or general location where your computer or device is accessing the internet, browser type, operating system and other usage information about the use of the www.qashot.com, including a history of the pages you view. We use this information to help us design our site to better suit our users’ needs. We may also use your IP address to help diagnose problems with our server and to administer our website, analyze trends, track visitor movements, and gather broad demographic information that assists us in identifying visitor preferences. The www.qashot.com also uses cookies and web beacons.</p>
+                              <h2>The legal basis of personal data processing</h2>
+                              <p>The legal basis of personal data processing is that you have asked us to create free QAShot reports before entering into a potential contract for the PRO version of our QAShot product.</p>
+                              <h2>How long will we process your personal information</h2>
+                              <p>We keep your personal information for no longer than necessary for the purposes for which it is processed, but at least for 6 months from the date you requested the of our services.</p>
+                              <h2>Do we disclose any information to outside parties?</h2>
+                              <p>Brainsum does not sell, trade or otherwise transfer to outside parties any personally identifiable information.</p>
+                              <p>This does not include trusted third parties or subcontractors who assist us in operating our website, conducting our business, or servicing you. Such trusted parties may have access to personally identifiable information on a need-to-know basis and will be contractually obliged to keep your information confidential.</p>
+                              <h2>Your rights</h2>
+                              <p>Regarding your personal information you have the right to:</p>
+                              <ul>
+                                <li>Access</li>
+                                <li>Rectificate</li>
+                                <li>Erase</li>
+                                <li>Restrict of processing</li>
+                                <li>Object to processing </li>
+                                <li>Data portability</li>
+                              </ul>
+                              <p>In case you have a request matching the rights listed above, please write to us at the following address: info@brainsum.com.</p>
+                              <p>Also you have the right to lodge a complaint with a <a href="http://www.naih.hu" target="_blank" rel="noopener noreferrer">supervisory authority.</a></p>
+                              <h2>Contacts</h2>
+                              <p>If you have any questions, you can contact us any time: <a href="mailto:info@qashot.com">info@qashot.com</a> .</p>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END Privacy Policy modal -->
+
                   <div class="checkbox-group">
-                    <input type="checkbox" name="input-checkbox-agree" id="input-checkbox-agree">
-                    <label for="input-checkbox-agree">I agree to my personal data being stored and used to receive
-                      newsletter</label>
-                    <div class="error">&nbsp;</div>
+                    <input type="checkbox" name="input-checkbox-agree-policy" id="input-checkbox-agree-policy">
+                    <label for="input-checkbox-agree-policy">I read and accepted the <span id="input-checkbox-agree-policy-modal">Privacy policy.</span></label>
+                    <div class="error"></div>
+                    <input type="checkbox" name="input-checkbox-agree-news" id="input-checkbox-agree-news">
+                    <label for="input-checkbox-agree-news">I would like to recieve QAShot.com news, offers.</label>
+                    <div class="error"></div>
                   </div>
                 </div>
               </div>

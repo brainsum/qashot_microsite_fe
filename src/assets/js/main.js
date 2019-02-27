@@ -1,6 +1,7 @@
 import validator from 'validator';
 import Wallop from 'wallop';
 import axios from 'axios';
+import RModal from 'rmodal';
 
 import Config from '../../../config';
 
@@ -12,12 +13,13 @@ document.getElementById('input-send').addEventListener('click', () => {
   const inputWebsite1 = document.getElementById('input-website-1');
   const inputWebsite2 = document.getElementById('input-website-2');
   const inputEmail = document.getElementById('input-email');
-  const inputCheckbox = document.getElementById('input-checkbox-agree');
+  const inputCheckboxPolicy = document.getElementById('input-checkbox-agree-policy');
+  const inputCheckboxNews = document.getElementById('input-checkbox-agree-news');
 
   if (!validator.isURL(inputWebsite1.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-1', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-1' }); }
   if (!validator.isURL(inputWebsite2.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-2', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-2' }); }
   if (!validator.isEmail(inputEmail.value)) { inputs.push({ error: true, id: 'input-email', message: 'Not a valid E-mail' }); } else { inputs.push({ error: false, id: 'input-email' }); }
-  if (!inputCheckbox.checked) { inputs.push({ error: true, id: 'input-checkbox-agree', message: 'Must be checked' }); } else { inputs.push({ error: false, id: 'input-checkbox-agree' }); }
+  if (!inputCheckboxPolicy.checked) { inputs.push({ error: true, id: 'input-checkbox-agree-policy', message: 'Must be checked' }); } else { inputs.push({ error: false, id: 'input-checkbox-agree-policy' }); }
 
   inputs.forEach((input) => {
     if (input.error) {
@@ -26,7 +28,7 @@ document.getElementById('input-send').addEventListener('click', () => {
       document.querySelector(`#${input.id} ~ .error`).textContent = input.message;
     } else {
       document.getElementById(input.id).style = 'border: none';
-      document.querySelector(`#${input.id} ~ .error`).innerHTML = '&nbsp;';
+      document.querySelector(`#${input.id} ~ .error`).innerHTML = '';
     }
   });
 
@@ -40,7 +42,8 @@ document.getElementById('input-send').addEventListener('click', () => {
     axios.post(Config.serviceProtocol + Config.serviceDomain + Config.servicePath, {
       reference_url: inputWebsite1.value,
       test_url: inputWebsite2.value,
-      newsletter: inputCheckbox.checked,
+      newsletter: inputCheckboxNews.checked,
+      privacy_policy: inputCheckboxPolicy.checked,
       email: inputEmail.value
     }).then((response) => {
       if (response.status >= 200 && response.status < 300) {
@@ -105,4 +108,26 @@ document.getElementById('input-again').addEventListener('click', () => {
       slider.goTo(event.target.dataset.tabIndex);
     });
   });
+}());
+
+// Modal
+
+(function rModal() {
+  var modal = new RModal(
+    document.getElementById('modal')
+  );
+
+  document.getElementById('input-checkbox-agree-policy-modal')
+    .addEventListener("click", function(e) {
+        e.preventDefault();
+        modal.open();
+    }, false);
+
+  document.getElementById('close-modal')
+    .addEventListener("click", function(e) {
+        e.preventDefault();
+        modal.close();
+    }, false);
+
+    window.modal = modal;
 }());
