@@ -65,7 +65,7 @@ document.getElementById('input-send').addEventListener('click', () => {
 
 // We create an other request. Crearing previous data.
 document.getElementById('input-again').addEventListener('click', () => {
-  const inputs = ['input-website-1', 'input-website-2', 'input-email', 'input-checkbox-agree'];
+  const inputs = ['input-website-1', 'input-website-2', 'input-email', 'input-checkbox-agree-policy', 'input-checkbox-agree-news'];
 
   inputs.forEach((input) => {
     const elem = document.getElementById(input);
