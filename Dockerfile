@@ -10,12 +10,19 @@ WORKDIR /home/node/app
 COPY package*.json ./
 
 RUN apk add --no-cache \
-    util-linux=2.32-r0 \
-    python=2.7.15-r1 \
-    # @todo: libcairo and anything else node-gyp wants.
-    pkgconf=1.5.3-r0 \
-    git=2.18.1-r0 && \
-    npm install && \
+        util-linux=2.32-r0 \
+        python=2.7.15-r1 \
+        # @todo: libcairo and anything else node-gyp wants.
+        pkgconf=1.5.3-r0 \
+        build-base \
+        g++=6.4.0-r9 \
+        cairo-dev=1.14.12-r2 \
+        jpeg-dev=8-r6 \
+        pango-dev=1.40.14-r1 \
+        giflib-dev=5.1.4-r2 \
+        git=2.18.1-r0 && \
+    \
+    npm ci && \
     chown -R node:node /home/node
 
 COPY . .
