@@ -117,11 +117,13 @@ document.getElementById('input-again').addEventListener('click', () => {
     document.getElementById('modal')
   );
 
-  document.getElementById('input-checkbox-agree-policy-modal')
-    .addEventListener("click", function(e) {
-        e.preventDefault();
-        modal.open();
+  document.querySelectorAll('.agree-policy-modal').forEach(function(elem){
+    elem.addEventListener("click", function(e) {
+      e.preventDefault();
+      modal.open();
     }, false);
+  });
+    
 
   document.getElementById('close-modal')
     .addEventListener("click", function(e) {
