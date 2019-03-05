@@ -35,6 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col text">
+            <a href="#" id="info-link">More information</a>
             <h1>QA Shot</h1>
             <h2>See the differences between 2&nbsp;website instances</h2>
           </div>
@@ -49,14 +50,14 @@
             <div class="websites">
               <div class="row align-items-end">
                 <div class="col-md form-website-1">
-                  <label for="input-website-1"><span class="label">Website instance 1</span> <span class="eg">(eg.
+                  <label for="input-website-1"><span class="label">Website&nbsp;instance&nbsp;1</span> <span class="eg">(eg.
                       live)</span></label>
                   <input type="text" class="w-100" name="input-website-1" id="input-website-1" placeholder="Like https://www.website.com">
                   <div class="error"></div>
                 </div>
                 <div class="col-md-1 form-vs">VS</div>
                 <div class="col-md form-website-2">
-                  <label for="input-website-2"><span class="label">Website instance 2</span>​​​​​​​<span class="eg">(eg.
+                  <label for="input-website-2"><span class="label">Website&nbsp;instance&nbsp;2</span>​​​​​​​<span class="eg">(eg.
                       development)</span></label>
                   <input type="text" class="w-100" name="input-website-2" id="input-website-2" placeholder="Like https://dev.website.com">
                   <div class="error"></div>
@@ -65,31 +66,18 @@
             </div>
             <div class="email">
               <div class="row align-items-start justify-content-center no-gutters">
-                <div class="col-md col-lg-6 col-xl-4">
+                <div class="col-md col-lg-5 col-xl-4 offset-xl-2">
                   <input type="text" class="w-100" name="input-email" id="input-email" placeholder="Your E-mail address">
                   <div class="error"></div>
                 </div>
-                <div class="col-md col-lg-6 col-xl-4">
+                <div class="col-md col-lg-5 col-xl-3 pl-0 pl-md-2">
                   <button class="w-100 btn btn-yellow" id="input-send">Send me the differences</button>
+                </div>
+                <div class="col-12 col-xl-3 pl-0 pl-xl-3 text-center text-xl-left http-link">
+                  <i class="fas fa-question-circle"></i><a href="#" id="http-link-anchor">Using HTTP auth?</a>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-md col-xl-6 col-lg-8 checkbox-agree">
-
-                  <!-- Privacy Policy modal -->
-                  <div id="modal" class="modal">
-                    <div class="modal-dialog animated">
-                      <div class="modal-content">
-                        <form class="form-horizontal" method="get">
-                          <button id="close-modal">&times;</button>
-                          <div class="modal-body">
-                            <iframe src="privacy-policy.html" frameborder="0"></iframe>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- END Privacy Policy modal -->
-
                   <div class="checkbox-group">
                     <input type="checkbox" name="input-checkbox-agree-policy" id="input-checkbox-agree-policy">
                     <label for="input-checkbox-agree-policy">I read and accepted the <span class="agree-policy-modal">Privacy policy.</span></label>
@@ -227,6 +215,68 @@
       </div>
     </div>
   </div>
+
+  <!-- HTTP link modal -->
+  <div id="http-link-modal" class="modal">
+    <div class="modal-dialog animated">
+      <div class="modal-content">
+        <form class="form-horizontal" method="get">
+          <button id="close-http-link-modal" class="modal-close">&times;</button>
+          <div class="modal-body px-1 px-sm-5">
+              <h2>Would you like to test a site with HTTP authentication?</h2>
+              <p>Use this format: http://username:password@example.com/</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END HTTP link modal -->
+
+  <!-- Privacy Policy modal -->
+  <div id="modal" class="modal">
+    <div class="modal-dialog animated">
+      <div class="modal-content">
+        <form class="form-horizontal" method="get">
+          <button id="close-modal" class="modal-close">&times;</button>
+          <div class="modal-body">
+            <iframe src="privacy-policy.html" frameborder="0"></iframe>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END Privacy Policy modal -->
+
+  <!-- More information modal -->
+  <div id="info-link-modal" class="modal">
+    <div class="modal-dialog animated">
+      <div class="modal-content">
+        <form class="form-horizontal" method="get">
+          <button id="close-info-link-modal" class="modal-close">&times;</button>
+          <div class="modal-body px-1 px-sm-5">
+            <h2>Screenshot resolutions</h2>
+            <p>In this free version 1920*full depth and 375*full depth screenshot comparisons will be created.</p>
+            <p>If you would like to have more, please contact us: <a href="mailto:info@qashot.com">info@qashot.com</a>.</p>
+            <h2>More features in PRO version</h2>
+            <ul>
+              <li>on-premise version</li>
+              <li>more viewports (incl. mobile)</li>
+              <li>saved screenshots</li>
+              <li>multiple urls, campaigns</li>
+              <li>scheduled re-running</li>
+              <li>ignore blocks</li>
+              <li>allerts</li>
+              <li>API</li>
+              <li>24/7 support</li>
+            </ul>
+            <p>Contact us at <a href="mailto:info@qashot.com">info@qashot.com</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END More information modal -->
+
   <script src="assets/js/main.js"></script>
 </body>
 

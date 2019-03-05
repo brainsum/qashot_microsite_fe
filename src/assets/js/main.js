@@ -133,7 +133,7 @@ document.getElementById('input-again').addEventListener('click', () => {
 }());
 
 
-// Modal
+// Privacy Modal
 (function rModal() {
   var modal = new RModal(
     document.getElementById('modal')
@@ -151,6 +151,42 @@ document.getElementById('input-again').addEventListener('click', () => {
       e.preventDefault();
       modal.close();
     }, false);
+}());
 
-  window.modal = modal;
+// HTTP Modal
+(function rModal() {
+  var modal = new RModal(
+    document.getElementById('http-link-modal')
+  );
+
+  document.getElementById('http-link-anchor')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.open();
+    }, false);
+
+  document.getElementById('close-http-link-modal')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.close();
+    }, false);
+}());
+
+// Info link Modal
+(function rModal() {
+  var modal = new RModal(
+    document.getElementById('info-link-modal')
+  );
+
+  document.getElementById('info-link')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.open();
+    }, false);
+
+  document.getElementById('close-info-link-modal')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.close();
+    }, false);
 }());
