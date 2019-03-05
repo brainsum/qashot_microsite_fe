@@ -42,15 +42,14 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   
   .modal-dialog, .modal-content, .form-horizontal, .modal-body {
     height: 100%;
   }
   .form-horizontal {
     position: relative;
-    padding: 50px 15px 25px 25px;
+    padding: 50px 15px 25px 15px;
     #close-modal {
       position: absolute;
       right: 1px;
@@ -67,7 +66,7 @@ h1, h2, h3 {
     }
   }
   .modal-body {
-    overflow-y: scroll;
+    overflow: hidden;
   }
   .modal-dialog {
     position: relative;
@@ -78,24 +77,9 @@ h1, h2, h3 {
     background: #fff;
     margin: 0 auto;
   }
-  p {
-    margin: 10px 0;
-  }
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1em;
-  }
-  h2 {
-    font-size: 1.1rem;
-    margin-top: 1em;
-    margin-bottom: .7em;
-
-  }
-  ul {
-    padding-left: 18px;
-    li {
-      list-style: initial;
-    }
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 }
 
