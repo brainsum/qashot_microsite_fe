@@ -3,8 +3,10 @@ import Wallop from 'wallop';
 import axios from 'axios';
 import RModal from 'rmodal';
 
+import PubSub from './pubsub';
 import Config from '../../../config';
 
+const pubsub = new PubSub();
 
 document.getElementById('input-send').addEventListener('click', () => {
   var errorCount = 0;
@@ -21,6 +23,32 @@ document.getElementById('input-send').addEventListener('click', () => {
   if (!validator.isEmail(inputEmail.value)) { inputs.push({ error: true, id: 'input-email', message: 'Not a valid E-mail' }); } else { inputs.push({ error: false, id: 'input-email' }); }
   if (!inputCheckboxPolicy.checked) { inputs.push({ error: true, id: 'input-checkbox-agree-policy', message: 'Must be checked' }); } else { inputs.push({ error: false, id: 'input-checkbox-agree-policy' }); }
 
+  // Form loading subscriptions
+  (() => {
+    const form1 = document.getElementById('form1');
+    const form2 = document.getElementById('form2');
+
+    function showFormLoading() {
+      form1.classList.add('loading');
+    }
+
+    pubsub.subscribe('showFormLoading', showFormLoading);
+
+    function removeFormLoading() {
+      form1.classList.remove('loading');
+    }
+
+    pubsub.subscribe('removeFormLoading', removeFormLoading);
+
+    function showFormAfter() {
+      form1.classList.remove('loading');
+      form1.style = 'display: none;';
+      form2.style = 'display: initial;';
+    }
+
+    pubsub.subscribe('showFormAfter', showFormAfter);
+  })();
+
   inputs.forEach((input) => {
     if (input.error) {
       errorCount += 1;
@@ -34,10 +62,7 @@ document.getElementById('input-send').addEventListener('click', () => {
 
   // There was no validation erro, so we send data.
   if (errorCount <= 0) {
-    const form1 = document.getElementById('form1');
-    const form2 = document.getElementById('form2');
-
-    form1.classList.add('loading');
+    pubsub.publish('showFormLoading');
 
     axios.post(Config.serviceProtocol + Config.serviceDomain + Config.servicePath, {
       reference_url: inputWebsite1.value,
@@ -52,12 +77,10 @@ document.getElementById('input-send').addEventListener('click', () => {
         document.getElementById('output-email').textContent = inputEmail.value;
         document.getElementById('output-email').href = `mailto:${inputEmail.value}`;
 
-        form1.classList.remove('loading');
-        form1.style = 'display: none;';
-        form2.style = 'display: initial;';
+        pubsub.publish('showFormAfter');
       }
     }).catch(() => {
-      form1.classList.remove('loading');
+      pubsub.publish('removeFormLoading');
       document.getElementById('output-error').textContent = 'There was an error while processing your request!';
     });
   }
@@ -81,7 +104,6 @@ document.getElementById('input-again').addEventListener('click', () => {
 
 
 // Image slider (wallop)
-
 (function imageSlider() {
   const tabs = document.getElementsByClassName('tab');
 
@@ -110,26 +132,25 @@ document.getElementById('input-again').addEventListener('click', () => {
   });
 }());
 
-// Modal
 
+// Modal
 (function rModal() {
   var modal = new RModal(
     document.getElementById('modal')
   );
 
-  document.querySelectorAll('.agree-policy-modal').forEach(function(elem){
-    elem.addEventListener("click", function(e) {
+  document.querySelectorAll('.agree-policy-modal').forEach((elem) => {
+    elem.addEventListener('click', (e) => {
       e.preventDefault();
       modal.open();
     }, false);
   });
-    
 
   document.getElementById('close-modal')
-    .addEventListener("click", function(e) {
-        e.preventDefault();
-        modal.close();
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.close();
     }, false);
 
-    window.modal = modal;
+  window.modal = modal;
 }());
