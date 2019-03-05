@@ -1,8 +1,17 @@
 @import 'vendor';
 @import '~node_modules/minireset.css/minireset.sass';
 @import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '~node_modules/bootstrap/scss/mixins.scss';
+@import '~node_modules/bootstrap/scss/utilities/text.scss';
+@import '~node_modules/bootstrap/scss/utilities/spacing.scss';
 @import 'vendor/wallop/wallop.scss';
 @import 'vendor/wallop/wallop--fade.scss';
+
+$fa-font-path: '../../../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '~node_modules/@fortawesome/fontawesome-free/scss/mixins.scss';
+@import '~node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~node_modules/@fortawesome/fontawesome-free/scss/core.scss';
+@import '~node_modules/@fortawesome/fontawesome-free/scss/icons.scss';
 
 @import 'fonts';
 @import 'form';
@@ -43,14 +52,36 @@ h1, h2, h3 {
   right: 0;
   bottom: 0;
   overflow: hidden;
-  
+  p {
+    margin: 10px 0;
+  }
+  h1, h2, h3 {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-top: 1em;
+    margin-bottom: .7em;
+  }
+  ul, ol {
+    padding-left: 18px;
+  }
+  ul li {
+    list-style: initial;
+  }
   .modal-dialog, .modal-content, .form-horizontal, .modal-body {
     height: 100%;
   }
   .form-horizontal {
     position: relative;
     padding: 50px 15px 25px 15px;
-    #close-modal {
+    .modal-close {
       position: absolute;
       right: 1px;
       top: 3px;
@@ -100,6 +131,23 @@ h1, h2, h3 {
         margin:60px 0 25px;
         text-align: center;
         color: #EEF6FF;
+        position: relative;
+        #info-link {
+          position: absolute;
+          top: 30px;
+          right: 15%;
+          color: #A8A8A8;
+          text-decoration: none;
+          @include media-breakpoint-down(md) {
+            right: 10%;
+          }
+          @include media-breakpoint-down(sm) {
+            right: initial;
+            left: 50%;
+            top: -20px;
+            transform: translateX(-50%);
+          }
+        }
         h1 {
           font-size: 4.5rem;
           font-weight: 400;
@@ -165,11 +213,11 @@ h1, h2, h3 {
           }
           .form-vs {
             text-align: center;
-            margin: 0 0 35px 0;
+            margin: 0 0 15px 0;
             font-size: 1.75rem;
             padding: 0;
             @include media-breakpoint-down(sm) {
-              margin: 0 0 20px 0;
+              margin: 10px 0 20px 0;
               &::before {
                 content: "- "
               }
@@ -184,13 +232,21 @@ h1, h2, h3 {
           @include media-breakpoint-down(sm) {
             margin-top: 30px;
           }
-          button {
-            margin: 0 0 0 6px;
-            max-width: 200px;
+          buttons {
             height: 48px;
             @include media-breakpoint-down(sm) {
               margin: 5px 0 0 0;
               max-width: initial;
+            }
+          }
+          .http-link {
+            padding-top: 15px;
+            i {
+              color: #A8A8A8;
+            }
+            a {
+              margin-left: 6px;
+              color: #A8A8A8;
             }
           }
           .checkbox-agree {
