@@ -1,0 +1,17 @@
+<?php
+
+$config = [
+  'api' => [
+    'hosts' => [
+      'base' => [
+        'prod' => [
+          'protocol' => 'http://',
+          'domain' => 'product-backend.qashot.com',
+          'path' => ''
+        ]
+      ]
+    ]
+  ]
+];
+
+echo 'window.QAConfig=' . json_encode($config);

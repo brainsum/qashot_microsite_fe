@@ -4,9 +4,10 @@ import axios from 'axios';
 import RModal from 'rmodal';
 
 import PubSub from './pubsub';
-import Config from '../../../config';
+import config from './config';
 
 const pubsub = new PubSub();
+config.set();
 
 document.getElementById('input-send').addEventListener('click', () => {
   var errorCount = 0;
@@ -64,7 +65,7 @@ document.getElementById('input-send').addEventListener('click', () => {
   if (errorCount <= 0) {
     pubsub.publish('showFormLoading');
 
-    axios.post(Config.serviceProtocol + Config.serviceDomain + Config.servicePath, {
+    axios.post(`${window.QAConfig.api.hosts.base.prod.protocol}${window.QAConfig.api.hosts.base.prod.domain}${window.QAConfig.api.hosts.base.prod.path}`, {
       reference_url: inputWebsite1.value,
       test_url: inputWebsite2.value,
       newsletter: inputCheckboxNews.checked,
