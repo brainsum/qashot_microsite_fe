@@ -3,10 +3,9 @@
 .idea
 
 # Files and folders
+/build/config.php
 /node_modules
 /dist
-/build
 /.cache
-/config.js
 /tmp
 /.env
