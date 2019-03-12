@@ -1,11 +1,25 @@
-version: '3.3'
+version: '2.4'
 
-# See: https://blog.manifold.co/building-a-production-grade-container-for-your-static-javascript-application-b2b2eff83fbd
+x-config:
+  &config-file-mount
+    "./config/config.php:/var/www/html/config.php:ro"
+
 services:
   app:
-    image: brainsum/qashot-microsite-fe:1.4.0
-    container_name: qashot_microsite_frontend_app
-    build:
-      context: .
+    image: brainsum/qashot-microsite-fe-app:1.4.0
+    volumes:
+      - *config-file-mount
+      - "source_code:/var/www/html"
+
+  web:
+    image: brainsum/qashot-microsite-fe-web:1.0.0
+    depends_on:
+      - app
     ports:
-    - "${EXPOSED_PORT:-8080}:80"
+      - "${WEB_PORT:-8080}:80"
+    volumes:
+      - *config-file-mount
+      - "source_code:/var/www/html:ro"
+
+volumes:
+  source_code: {}

@@ -1,15 +1,15 @@
-# Builder
-FROM node:10.15.1-alpine AS build
-
-LABEL maintainer="mhavelant"
+# Source code.
+# Build.
+FROM node:10.15.1-alpine as builder
 
 ENV PATH="/home/node/app/node_modules/.bin:$PATH"
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY ["package.json", "package-lock.json", "./"]
 
-RUN apk add --no-cache \
+RUN apk add --update --no-cache \
+        python=2.7.15-r1 \
         util-linux=2.32-r0 \
         python=2.7.15-r1 \
         # @todo: libcairo and anything else node-gyp wants.
@@ -21,24 +21,31 @@ RUN apk add --no-cache \
         pango-dev=1.40.14-r1 \
         giflib-dev=5.1.4-r2 \
         git=2.18.1-r0 && \
-    \
+    chown node:node . -R
+
+USER node
+
+RUN \
     npm ci && \
-    chown -R node:node /home/node
+    npm cache -g clean --force
 
 COPY . .
 
 RUN npm run-script build
 
-# Actual
-FROM pagespeed/nginx-pagespeed:1.13.35.2-alpine3.8-ngx1.15
+
+# Actual.
+FROM php:7.2.15-fpm-alpine3.9
 
 LABEL maintainer="mhavelant"
 
-COPY --from=build /home/node/app/build /var/www
-COPY --from=build /home/node/app/src/robots.txt /var/www
-COPY docker/nginx_config/nginx.conf /etc/nginx/conf.d/default.conf
-COPY docker/nginx_config/additional /etc/nginx/additional
+WORKDIR /var/www/html
+VOLUME /var/www/html
 
-EXPOSE 80
+# Use the default production configuration
+USER root
+RUN mv "${PHP_INI_DIR}/php.ini-production" "${PHP_INI_DIR}/php.ini"
 
-CMD ["nginx", "-g", "daemon off;"]
+USER www-data
+
+COPY --from=builder --chown=www-data:www-data ["/home/node/app/build", "/var/www/html"]

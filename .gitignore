@@ -9,3 +9,5 @@
 /.cache
 /tmp
 /.env
+
+/config/config.php

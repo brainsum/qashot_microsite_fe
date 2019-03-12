@@ -1,0 +1,10 @@
+version: "2.4"
+
+services:
+  app:
+    build:
+      context: ./
+
+  web:
+    build:
+      context: ./docker/web

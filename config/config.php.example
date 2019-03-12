@@ -6,7 +6,7 @@ $config = [
       'base' => [
         'prod' => [
           'protocol' => 'http://',
-          'domain' => 'product-backend.qashot.com',
+          'domain' => 'mysite.com',
           'path' => ''
         ]
       ]
