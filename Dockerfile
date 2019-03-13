@@ -1,4 +1,3 @@
-# Source code.
 # Build.
 FROM node:10.15.1-alpine as builder
 
@@ -14,7 +13,7 @@ RUN apk add --update --no-cache \
         python=2.7.15-r1 \
         # @todo: libcairo and anything else node-gyp wants.
         pkgconf=1.5.3-r0 \
-        build-base \
+        build-base=0.5-r1 \
         g++=6.4.0-r9 \
         cairo-dev=1.14.12-r2 \
         jpeg-dev=8-r6 \

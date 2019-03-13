@@ -6,7 +6,7 @@ x-config:
 
 services:
   app:
-    image: brainsum/qashot-microsite-fe-app:1.4.0
+    image: brainsum/qashot-microsite-fe-app:1.4.1
     volumes:
       - *config-file-mount
       - "source_code:/var/www/html"
