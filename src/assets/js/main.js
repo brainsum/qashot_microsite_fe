@@ -20,21 +20,30 @@ config.set();
   const inputSend = document.getElementById('input-send');
 
 
-axios.interceptors.response.use(function (response) {
-  // Do something with response data
-  return response;
-}, function (error) {
-  // Do something with response error
-  console.log(error);
-});
+  axios.interceptors.response.use(function res(response) {
+    // Do something with response data
+    return response;
+  }, function err(error) {
+    // Do something with response error
+    console.log(error);
+  });
 
   // We input the first website URL
   inputWebsite1.addEventListener('input', (e) => {
     if (validator.isURL(e.target.value, { require_protocol: true })) {
       console.log(e.target.value);
-      axios.get(e.target.value).catch((error) => {
-        console.log('Error: ', error.response);
-      });
+      axios.get(e.target.value)
+        .then((response) => {
+          console.log(response);
+        }).catch((error) => {
+          console.log('Error: ', error.response);
+        });
+      fetch(e.target.value)
+        .then((response) => {
+          console.log(response);
+        }).catch((error) => {
+          console.log('Error: ', error.response);
+        });
     }
   });
 
@@ -42,38 +51,38 @@ axios.interceptors.response.use(function (response) {
   inputSend.addEventListener('click', () => {
 
     var inputs = [];
-  
+
     if (!validator.isURL(inputWebsite1.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-1', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-1' }); }
     if (!validator.isURL(inputWebsite2.value, { require_protocol: true })) { inputs.push({ error: true, id: 'input-website-2', message: 'Not a valid URL' }); } else { inputs.push({ error: false, id: 'input-website-2' }); }
     if (!validator.isEmail(inputEmail.value)) { inputs.push({ error: true, id: 'input-email', message: 'Not a valid E-mail' }); } else { inputs.push({ error: false, id: 'input-email' }); }
     if (!inputCheckboxPolicy.checked) { inputs.push({ error: true, id: 'input-checkbox-agree-policy', message: 'Must be checked' }); } else { inputs.push({ error: false, id: 'input-checkbox-agree-policy' }); }
-  
+
     // Form loading subscriptions
     (() => {
       const form1 = document.getElementById('form1');
       const form2 = document.getElementById('form2');
-  
+
       function showFormLoading() {
         form1.classList.add('loading');
       }
-  
+
       pubsub.subscribe('showFormLoading', showFormLoading);
-  
+
       function removeFormLoading() {
         form1.classList.remove('loading');
       }
-  
+
       pubsub.subscribe('removeFormLoading', removeFormLoading);
-  
+
       function showFormAfter() {
         form1.classList.remove('loading');
         form1.style = 'display: none;';
         form2.style = 'display: initial;';
       }
-  
+
       pubsub.subscribe('showFormAfter', showFormAfter);
     })();
-  
+
     inputs.forEach((input) => {
       if (input.error) {
         errorCount += 1;
@@ -88,7 +97,7 @@ axios.interceptors.response.use(function (response) {
     // There was no validation erro, so we send data.
     if (errorCount <= 0) {
       pubsub.publish('showFormLoading');
-  
+
       axios.post(`${window.QAConfig.api.hosts.base.prod.protocol}${window.QAConfig.api.hosts.base.prod.domain}${window.QAConfig.api.hosts.base.prod.path}`, {
         reference_url: inputWebsite1.value,
         test_url: inputWebsite2.value,
@@ -101,7 +110,7 @@ axios.interceptors.response.use(function (response) {
           document.getElementById('output-website-2').textContent = inputWebsite2.value;
           document.getElementById('output-email').textContent = inputEmail.value;
           document.getElementById('output-email').href = `mailto:${inputEmail.value}`;
-  
+
           pubsub.publish('showFormAfter');
         }
       }).catch(() => {
@@ -110,7 +119,7 @@ axios.interceptors.response.use(function (response) {
       });
     }
   });
-})();
+}());
 
 // We create an other request. Crearing previous data.
 document.getElementById('input-again').addEventListener('click', () => {

@@ -6,6 +6,7 @@
   "rules": {
     "no-var": "off",
     "no-console": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "prefer-arrow-callback": "off"
   }
 }
