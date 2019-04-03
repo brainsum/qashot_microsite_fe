@@ -95,31 +95,42 @@
           <!-- Form 2 -->
           <div class="col-sm-9 form2" id="form2">
             <div class="websites">
-              <div class="row">
-                <div class="col form-heading text-center">
-                  <h2>Your request has been recorded</h2>
+              <div class="top">
+                <div class="row">
+                  <div class="col form-heading text-center">
+                    <h2>Your request has been recorded</h2>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col form-website1 text-center">
+                    <div class="website1"><b>Website instance 1:</b></div>
+                    <div class="address" id="output-website-1">www.dev.livesite.com</div>
+                  </div>
+                </div>
+                <div class="row justify-content-center text-center">
+                  <div class="col form-website2">
+                    <div class="website2"><b>Website instance 2:</b></div>
+                    <div class="address" id="output-website-2">www.livesite.com</div>
+                  </div>
+                </div>
+                <div class="row justify-content-center text-center">
+                  <div class="col form-email">
+                    <div class="email"><b>Email:</b></div>
+                    <div class="address" id="output-email">email@domain.com</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col form-footer text-center">
+                    <h2 class="result">The result of your comparison will be in your inbox soon.<br/>Please wait at least 2 minutes.</h2>
+                    <h2 class="thanks">Thank you for using our service!</h2>
+                  </div>
                 </div>
               </div>
-              <div class="row justify-content-center">
-                <div class="col form-website1 text-center">
-                  <div class="website1">Website instance 1:</div>
-                  <div class="address" id="output-website-1">www.dev.livesite.com</div>
-                </div>
-              </div>
-              <div class="row justify-content-center text-center">
-                <div class="col form-website2">
-                  <div class="website2">Website instance 2:</div>
-                  <div class="address" id="output-website-2">www.livesite.com</div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col form-email text-center">
-                  <h2>Please wait a bit and check your email address to see the result: <a id="output-email" href="mailto:email@domain.com">email@domain.com</a></h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col form-button text-center">
-                  <button class="btn btn-yellow" id="input-again">Create new comparison</button>
+              <div class="bottom">
+                <div class="row">
+                  <div class="col form-button text-center">
+                    <button class="btn btn-yellow" id="input-again">Create new comparison</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -199,7 +210,7 @@
             </div>
             <div class="row mailto">
               <div class="col">
-                <p class="text-center">Contact us at <a href="mailto:info@brainsum.com">info@brainsum.com</a></p>
+                <p class="text-center">Contact us at <a href="mailto:info@qashot.com">info@qashot.com</a></p>
               </div>
             </div>
           </div>
@@ -225,7 +236,7 @@
           <button id="close-http-link-modal" class="modal-close">&times;</button>
           <div class="modal-body px-1 px-sm-5">
               <h2>Would you like to test a site with HTTP authentication?</h2>
-              <p>Use this format: http://username:password@example.com/</p>
+              <p>Use this format: http://*username\:password*@yourdomain.com</p>
           </div>
         </form>
       </div>
@@ -258,6 +269,8 @@
             <h2>Screenshot resolutions</h2>
             <p>In this free version 1920*full depth and 375*full depth screenshot comparisons will be created.</p>
             <p>If you would like to have more, please contact us: <a href="mailto:info@qashot.com">info@qashot.com</a>.</p>
+            <h2>Would you like to test a site with HTTP authentication?</h2>
+            <p>Use this format: http://username\:password@yourdomain.com</p>
             <h2>More features in PRO version</h2>
             <ul>
               <li>on-premise version</li>
