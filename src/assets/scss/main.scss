@@ -280,34 +280,49 @@ h1, h2, h3 {
       }
       .form2 {
         display: none;
-        background-color: rgba(255, 255, 255, 0.15);
-        padding: 40px 60px;
         margin:25px 0 60px;
-        @include media-breakpoint-down(md) {
-          padding: 40px 40px;
-        }
-        @include media-breakpoint-down(xs) {
-          padding: 40px 20px;
-          margin:25px 0 0;
+        .top {
+          background-color: rgba(255, 255, 255, 0.15);
+          padding: 40px 60px;
+          @include media-breakpoint-down(md) {
+            padding: 40px 40px;
+          }
+          @include media-breakpoint-down(xs) {
+            padding: 40px 20px;
+            margin:25px 0 0;
+          }
         }
         .form-heading {
           font-size: 2rem;
         }
         .form-website1 {
-          margin: 20px 0 10px;
+          margin: 30px 0 10px;
+          color: #9d9da6;
+          b {
+            color: #FFF;
+            font-size: 1.2em;
+          }
         }
         .form-website2 {
-          margin: 10px 0 20px;
+          margin: 10px 0 10px;
+          color: #9d9da6;
+          b {
+            color: #FFF;
+            font-size: 1.2em;
+          }
         }
         .form-email {
-          font-size: 1.2rem;
-          margin-top: 10px;
-          margin-bottom: 10px;
-          h2 {
-            line-height: 1.4;
-          }
-          a {
+          margin: 10px 0 10px;
+          color: #9d9da6;
+          b {
             color: #FFF;
+            font-size: 1.2em;
+          }
+        }
+        .form-footer {
+          h2 {
+            font-size: 1.2rem;
+            margin-top: 25px;
           }
         }
         .form-button {
