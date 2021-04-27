@@ -25,7 +25,7 @@
     "rmodal": "^1.0.31",
     "simple-slider": "^1.0.0",
     "trianglify": "^2.0.0",
-    "validator": "^10.11.0",
+    "validator": "^13.6.0",
     "wallop": "^2.4.1"
   },
   "scripts": {
