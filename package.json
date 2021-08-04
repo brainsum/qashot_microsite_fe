@@ -19,7 +19,7 @@
     "eslint-plugin-react": "^7.12.4",
     "lodash": "^4.17.11",
     "minireset.css": "0.0.4",
-    "node-sass": "^4.11.0",
+    "node-sass": "^5.0.0",
     "parcel-bundler": "1.11.0",
     "replace": "^1.1.0",
     "rmodal": "^1.0.31",
